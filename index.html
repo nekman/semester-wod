@@ -33,7 +33,7 @@
     </style>
   </head>
   <body>
-    <div id="carousel-example-generic" class="carousel slide">
+    <div id="carousel-example-generic" class="slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -70,11 +70,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
-      const date = new Date().toLocaleDateString();
+      const date = new URLSearchParams(location.search).get('d') || new Date().toLocaleDateString()
       $(() => {
-        $('#wod').load(`./wods/${date}.html`, html => {
-          $('.date').text(date);
-        })
+        $('#wod').load(`./wods/${date}.html`, () => $('.date').text(date));
       });
       
     </script>
