@@ -65,7 +65,7 @@
     <script>
       const date = new URLSearchParams(location.search).get('d') || new Date().toLocaleDateString()
       $(() => {
-        $('#wod').load(`./wods/${date}.html`, () => $('.date').text(date));
+        $('#wod').load(`./wods/${date}.html?${Date.now()}`, () => $('.date').text(date));
       });
       
     </script>
